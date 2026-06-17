@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Lomba - Gebyar Sincan 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-scout">
+    <div class="scout-watermark scout-watermark-1">⚜</div>
+    <div class="scout-watermark scout-watermark-2">⚜</div>
+
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/5 border-b border-white/10 py-4">
+        <div class="nav-menu text-sm md:text-base font-medium">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="lomba.html" class="nav-link nav-link-active">Lomba</a>
+            <a href="https://drive.google.com/file/d/1-Ut0XHy7AjcVjMd-NeAfK5FCv9wQl7ry/view?usp=sharing" target="_blank" class="nav-link">Juklak</a>
+            <a href="kontak.html" class="nav-link">Kontak</a>
+        </div>
+    </nav>
+
+    <div class="relative z-10 pt-28 pb-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 scroll-animate-scale">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 title-gradient glow-effect">
+                    CABANG LOMBA
+                </h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="lomba-card glass-card rounded-3xl overflow-hidden scroll-animate stagger-1">
+                    <div class="h-40 bg-amber-600/30 flex items-center justify-center relative overflow-hidden">
+                        <span class="text-7xl opacity-20 absolute -right-4 -bottom-4">💂</span>
+                        <div class="text-5xl z-10">💂‍♂️</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white">LKBB</h3>
+                    </div>
+                </div>
+
+                <div class="lomba-card glass-card rounded-3xl overflow-hidden scroll-animate stagger-2">
+                    <div class="h-40 bg-blue-600/30 flex items-center justify-center relative overflow-hidden">
+                        <span class="text-7xl opacity-20 absolute -right-4 -bottom-4">🧠</span>
+                        <div class="text-5xl z-10">🧠</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white">SI</h3>
+                    </div>
+                </div>
+
+                <div class="lomba-card glass-card rounded-3xl overflow-hidden scroll-animate stagger-3">
+                    <div class="h-40 bg-purple-600/30 flex items-center justify-center relative overflow-hidden">
+                        <span class="text-7xl opacity-20 absolute -right-4 -bottom-4">🎬</span>
+                        <div class="text-5xl z-10">🎬</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white">VLOG</h3>
+                    </div>
+                </div>
+
+                <div class="lomba-card glass-card rounded-3xl overflow-hidden scroll-animate stagger-4">
+                    <div class="h-40 bg-yellow-600/30 flex items-center justify-center relative overflow-hidden">
+                        <span class="text-7xl opacity-20 absolute -right-4 -bottom-4">🚩</span>
+                        <div class="text-5xl z-10">🚩</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white">SMS</h3>
+                    </div>
+                </div>
+
+                <div class="lomba-card glass-card rounded-3xl overflow-hidden scroll-animate stagger-5">
+                    <div class="h-40 bg-pink-600/30 flex items-center justify-center relative overflow-hidden">
+                        <span class="text-7xl opacity-20 absolute -right-4 -bottom-4">🎨</span>
+                        <div class="text-5xl z-10">🎨</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white">POSTER</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-10 pb-10 text-center space-y-4">
+        <p class="text-white/60 text-xs md:text-sm">
+            © 2026 Panitia Gebyar Sincan
+        </p>
+    </footer>
+
+    <script>
+        // Intersection Observer logic
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate, .scroll-animate-scale, .scroll-animate-fade').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

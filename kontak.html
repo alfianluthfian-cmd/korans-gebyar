@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - Gebyar Sincan 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-scout">
+    <div class="scout-watermark scout-watermark-1">⚜</div>
+    <div class="scout-watermark scout-watermark-2">⚜</div>
+
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/5 border-b border-white/10 py-4">
+        <div class="nav-menu text-sm md:text-base font-medium">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="lomba.html" class="nav-link">Lomba</a>
+            <a href="https://drive.google.com/file/d/1-Ut0XHy7AjcVjMd-NeAfK5FCv9wQl7ry/view?usp=sharing" target="_blank" class="nav-link">Juklak</a>
+            <a href="kontak.html" class="nav-link nav-link-active">Kontak</a>
+        </div>
+    </nav>
+
+    <div class="relative z-10 min-h-screen flex items-center justify-center p-4 pt-24 pb-12">
+        <div class="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            
+            <div class="text-center lg:text-left space-y-6 scroll-animate-slide-left">
+                <h1 class="text-5xl md:text-7xl font-extrabold title-gradient glow-effect">
+                    KONTAK KAMI
+                </h1>
+            </div>
+
+            <div class="grid gap-4 scroll-animate-slide-right stagger-2">
+                
+                <a href="https://wa.me/62895359573013" target="_blank" 
+                   class="glass-card p-6 rounded-3xl flex items-center justify-between hover:border-amber-500 transition-all group overflow-hidden relative">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-green-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                            📱
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg">WhatsApp Panitia</h3>
+                            <p class="text-white/60 text-sm">+62 895 3595 73013</p>
+                        </div>
+                    </div>
+                    <span class="text-white/30 group-hover:translate-x-2 group-hover:text-amber-400 transition-all text-2xl">➜</span>
+                </a>
+
+                <a href="mailto:sincan.siap04@gmail.com" 
+                   class="glass-card p-6 rounded-3xl flex items-center justify-between hover:border-amber-500 transition-all group overflow-hidden relative">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                            ✉️
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Email Official</h3>
+                            <p class="text-white/60 text-sm">sincan.siap04@gmail.com</p>
+                        </div>
+                    </div>
+                    <span class="text-white/30 group-hover:translate-x-2 group-hover:text-amber-400 transition-all text-2xl">➜</span>
+                </a>
+
+                <a href="https://www.instagram.com/sincan.siap?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" 
+                   class="glass-card p-6 rounded-3xl flex items-center justify-between hover:border-amber-500 transition-all group overflow-hidden relative">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-pink-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                            📸
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Instagram</h3>
+                            <p class="text-white/60 text-sm">@sincan.siap</p>
+                        </div>
+                    </div>
+                    <span class="text-white/30 group-hover:translate-x-2 group-hover:text-amber-400 transition-all text-2xl">➜</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-8 border-t border-white/10 relative z-10">
+        <p class="text-white/40 text-xs">© 2026 Panitia Gebyar Sincan • All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Intersection Observer logic
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate-slide-left, .scroll-animate-slide-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
