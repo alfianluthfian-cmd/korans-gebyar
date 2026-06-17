@@ -16,15 +16,12 @@
     <div class="scout-watermark scout-watermark-2">⚜</div>
     <div class="scout-watermark scout-watermark-3">⚜</div>
 
-    <!-- Navigation Bar (SUDAH DIPERBAIKI: Ke tengah & Home digarisbawahi) -->
-    <nav class="relative z-20 backdrop-blur-md bg-white/5 border-b border-white/10 py-4 px-4 md:px-6 w-full">
-        <div class="max-w-7xl mx-auto flex justify-center">
-            <div class="flex justify-center items-center gap-4 md:gap-8 text-white text-sm md:text-base font-medium w-full">
-                <a href="#" class="nav-link text-amber-400">Home</a>
-                <a href="lomba.html" class="nav-link">Lomba</a>
-                <a href="https://drive.google.com/file/d/1-Ut0XHy7AjcVjMd-NeAfK5FCv9wQl7ry/view?usp=sharing" target="_blank" class="nav-link">Juklak</a>
-                <a href="kontak.html" class="nav-link">Kontak</a>
-            </div>
+    <nav class="relative z-20 backdrop-blur-md bg-white/5 border-b border-white/10 py-4 w-full">
+        <div class="nav-menu text-sm md:text-base font-medium">
+            <a href="index.html" class="nav-link nav-link-active">Home</a>
+            <a href="lomba.html" class="nav-link">Lomba</a>
+            <a href="https://drive.google.com/file/d/1-Ut0XHy7AjcVjMd-NeAfK5FCv9wQl7ry/view?usp=sharing" target="_blank" class="nav-link">Juklak</a>
+            <a href="kontak.html" class="nav-link">Kontak</a>
         </div>
     </nav>
 
@@ -68,11 +65,7 @@
             </div>
 
             <!-- Form -->
-            <form action="https://api.web3forms.com/submit" method="POST" id="saranForm" class="space-y-7">
-                <!-- Hidden Inputs -->
-                <input type="hidden" name="access_key" value="dd9904b3-5558-4f2e-b6a2-440684ad0462">
-                <input type="hidden" name="subject" value="Saran Baru Peserta Gebyar Sincan 2026">
-
+            <form id="saranForm" class="space-y-7">
                 <!-- Saran & Kritik -->
                 <div class="space-y-3 scroll-animate-rotate stagger-4">
                     <label class="block text-white font-bold text-base md:text-lg">
@@ -123,6 +116,9 @@
     </div>
 
     <script>
+        // Salin URL lengkap dari: Apps Script → Terapkan → Kelola deployment → URL Aplikasi web → Salin
+        const GAS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxbuHXDNy1dNWD0ifHR8G2LvH0UT2uP2cPVwkQnWGvA1r_JyOj9ho_qAylkk4/exec';
+
         const SARAN_STORAGE_KEY = 'gebyar_sincan_2026_saran_submitted';
         const saranForm = document.getElementById('saranForm');
         const alreadySubmitted = document.getElementById('alreadySubmitted');
@@ -147,31 +143,26 @@
                 return;
             }
 
+            const saranText = this.querySelector('[name="saran_kritik"]').value.trim();
+            if (!saranText) return;
+
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
 
-            const form = this;
-            const formData = new FormData(form);
-
-            fetch(form.action, {
+            fetch(GAS_SCRIPT_URL, {
                 method: 'POST',
-                body: formData
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ saran_kritik: saranText })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    localStorage.setItem(SARAN_STORAGE_KEY, 'true');
-                    notification.classList.add('show');
-                    showAlreadySubmitted();
+            .then(() => {
+                localStorage.setItem(SARAN_STORAGE_KEY, 'true');
+                notification.classList.add('show');
+                showAlreadySubmitted();
 
-                    setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 5000);
-                } else {
-                    alert('Gagal mengirim saran. Silakan coba lagi.');
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-                }
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
             })
             .catch(error => {
                 console.error('Error:', error);
